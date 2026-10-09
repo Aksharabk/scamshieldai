@@ -1,0 +1,6 @@
+scenario_id,amount_inr,new_payee,urgent_request,collect_request,unknown_qr,unusual_time,message,expected_demo_band
+TX001,850,no,no,no,no,no,Payment for known shop,lower-demo
+TX002,12000,yes,yes,no,no,no,Please pay immediately,medium-demo
+TX003,32000,yes,yes,yes,yes,yes,URGENT account blocked verify now share OTP for refund,high-demo
+TX004,5000,no,no,yes,no,no,Approve this collect request,medium-demo
+TX005,1500,yes,no,no,yes,no,Scan this QR to claim prize,medium-demo

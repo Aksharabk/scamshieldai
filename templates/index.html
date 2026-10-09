@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ScamShield AI | UPI Safety Demo</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header><div class="brand-mark">S</div><div><h1>ScamShield AI</h1><p>UPI Scam Early-Warning Prototype</p></div><span class="demo-pill">DEMO MODE</span></header>
+<main>
+<section class="hero"><div><p class="eyebrow">PAUSE • VERIFY • PROTECT</p><h2>Check the warning signs<br>before you pay.</h2><p>Enter a fictional payment scenario to see an explainable risk assessment and safe next steps.</p></div><div class="hero-icon">⌁</div></section>
+<section class="layout">
+<form id="riskForm" class="panel">
+<h3>Transaction context</h3><p class="muted">Use synthetic details only. Do not enter real account or customer data.</p>
+<label>Amount (₹)<input type="number" name="amount" min="0" step="1" value="12000" required></label>
+<div class="checks">
+<label class="check"><input type="checkbox" name="new_payee" checked> First-time recipient</label>
+<label class="check"><input type="checkbox" name="urgent_request" checked> Sender pressures me to act quickly</label>
+<label class="check"><input type="checkbox" name="collect_request"> UPI collect request / request to approve payment</label>
+<label class="check"><input type="checkbox" name="unknown_qr"> Unknown QR code or payment link</label>
+<label class="check"><input type="checkbox" name="unusual_time"> Unusual transaction time</label>
+</div>
+<label>Message or request (optional)<textarea name="message" rows="3" placeholder="Example: Urgent KYC update, verify now..."></textarea></label>
+<button type="submit">Assess warning signals <span>→</span></button>
+<div id="error" class="error" role="alert"></div>
+</form>
+<section class="panel result-panel" aria-live="polite">
+<div class="result-top"><div><p class="eyebrow">ASSESSMENT</p><h3>Risk signal summary</h3></div><span class="shield">✓</span></div>
+<div id="empty" class="empty"><div class="empty-symbol">◎</div><p>Your explanation will appear here.</p><small>This demo uses transparent rules, not a trained fraud model.</small></div>
+<div id="result" hidden>
+<div class="risk-line"><div><span class="muted">Demo risk score</span><div class="score"><strong id="score">0</strong><small>/ 100</small></div></div><span id="level" class="level">Lower</span></div>
+<div class="meter"><div id="meterFill"></div></div>
+<h4>Why you are seeing this</h4><ul id="reasons"></ul>
+<div class="advice"><strong>Recommended next step</strong><p id="advice"></p></div>
+<p class="disclaimer" id="disclaimer"></p>
+</div>
+<div class="demo-buttons"><button type="button" class="secondary" id="safeExample">Load lower-risk example</button><button type="button" class="secondary" id="scamExample">Load scam example</button></div>
+</section>
+</section>
+<section class="footnote"><strong>Safety by design:</strong> no automatic blocking, no accusation of a person, no bank integration, and no sensitive data storage in this prototype.</section>
+</main>
+<footer>ScamShield AI · Hackathon prototype · Synthetic/manual input only</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
